@@ -9,6 +9,11 @@ export default class App extends Component {
   displayName = App.name;
 
   render() {
-    return <Route exact path="/" component={Home} />;
+    return (
+      <di>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/fetxh" component={FetchData} />
+      </di>
+    );
   }
 }
