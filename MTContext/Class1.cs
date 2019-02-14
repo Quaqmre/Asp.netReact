@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace monova.Entitiy
+namespace MTContext
 {
     public class Class1
     {

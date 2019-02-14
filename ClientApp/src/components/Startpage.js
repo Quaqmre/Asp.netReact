@@ -24,7 +24,7 @@ export class Startpage extends Component {
           </ul>
         </div>
         <div className="image">
-          <img src="images/quaqmre.jpg" alt="" />
+        <img src="images/quaqmre.jpg" alt="" />
         </div>
       </section>
     );

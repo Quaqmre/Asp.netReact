@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import Slider from "react-slick";
+
 import { Paragraf } from "./Paragraf";
 import { Startpage } from "./Startpage";
 import { MiniBox } from "./MiniBox";
@@ -7,6 +9,13 @@ export class Home extends Component {
   displayName = Home.name;
 
   render() {
+    var settings = {
+      dots: true,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 1,
+      slidesToScroll: 1
+    };
     return (
       <div>
         {" "}
@@ -23,6 +32,27 @@ export class Home extends Component {
             paraf="Write so much things"
             img="akif"
           />
+
+          <Slider {...settings}>
+            <div>
+              <img src="images/quaqmre.jpg" alt="" />
+            </div>
+            <div>
+              <img src="images/quaqmre.jpg" alt="" />
+            </div>
+            <div>
+              <img src="images/quaqmre.jpg" alt="" />
+            </div>
+            <div>
+              <img src="images/quaqmre.jpg" alt="" />
+            </div>
+            <div>
+              <img src="images/quaqmre.jpg" alt="" />
+            </div>
+            <div>
+              <img src="images/quaqmre.jpg" alt="" />
+            </div>
+          </Slider>
 
           <Paragraf
             layout="orient-right"
