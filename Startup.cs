@@ -1,10 +1,13 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using MainTrain.MTTContext;
 
 namespace MainTrain
 {
@@ -19,7 +22,15 @@ namespace MainTrain
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
+
         {
+            services.AddDbContext<MTContext>(
+        options => options.UseNpgsql("Host=localhost;Port=5432;Database=postgres;User ID=postgres;Password=123123;")
+    );
+            services.AddDefaultIdentity<MTUser>()
+            .AddEntityFrameworkStores<MTContext>()
+            .AddDefaultTokenProviders();
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             // In production, the React files will be served from this directory
@@ -45,6 +56,7 @@ namespace MainTrain
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
+            app.UseAuthentication();
 
             app.UseMvc(routes =>
             {
